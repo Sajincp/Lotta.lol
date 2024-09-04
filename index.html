@@ -55,9 +55,7 @@
 									<span class="image"><img src="images/pic01.jpg" alt="" /></span>
 								</div>
 							</section>
-						<!DOCTYPE html>
-<html lang="en">
-<head>
+						<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lotta.lol</title>
@@ -74,6 +72,8 @@
         }
         .main {
             text-align: center;
+            width: 90%;
+            max-width: 800px;
         }
         .spotlight {
             position: relative;
@@ -81,12 +81,10 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            padding: 20px;
         }
         .content {
             padding: 20px;
-        }
-        .major {
-            margin-bottom: 20px;
         }
         .major h2 {
             font-size: 24px;
@@ -129,9 +127,15 @@
         .button-secondary:hover {
             background: #218838;
         }
+        .image img {
+            width: 100%;
+            height: auto;
+            border-top: 1px solid #ddd;
+        }
     </style>
 </head>
 <body>
+    <!-- Introduction -->
     <section id="intro" class="main">
         <div class="spotlight">
             <div class="content">
@@ -154,6 +158,7 @@
             <span class="image"><img src="images/pic01.jpg" alt="Placeholder image" /></span>
         </div>
     </section>
+    <!-- End of Introduction -->
 
     <script>
         document.getElementById('ageCheckBtn').addEventListener('click', function() {
@@ -161,9 +166,7 @@
         });
     </script>
 </body>
-</html>
-
-
+						
 						<!-- First Section -->
 							<section id="first" class="main special">
 								<header class="major">
