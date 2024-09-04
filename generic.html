@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Chat Application - Stellar by HTML5 UP</title>
+    <title>Stranger Chat - Stellar by HTML5 UP</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
@@ -129,17 +129,15 @@
         document.getElementById('submitBtn').addEventListener('click', function() {
             const nickname = document.getElementById('nicknameInput').value;
             if (nickname.trim() !== "") {
-                // Store nickname in sessionStorage
                 sessionStorage.setItem('nickname', nickname);
-
-                // Redirect to the same page to initialize chat
-                window.location.href = window.location.href;
+                socket.emit('register', nickname);
+                document.getElementById('nicknameSection').style.display = 'none';
+                document.getElementById('chatSection').style.display = 'block';
             } else {
                 alert("Please enter a nickname.");
             }
         });
 
-        // Check if nickname is set in sessionStorage
         const nickname = sessionStorage.getItem('nickname');
         if (nickname) {
             document.getElementById('nicknameSection').style.display = 'none';
@@ -154,7 +152,6 @@
             }
         });
 
-        // Handle incoming chat messages
         socket.on('chatMessage', function(data) {
             const chatBox = document.getElementById('chatBox');
             const messageElem = document.createElement('div');
@@ -163,5 +160,6 @@
             chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll to the bottom
         });
     </script>
+
 </body>
 </html>
